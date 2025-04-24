@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8" />
+    <title>Mes Réseaux et Produits</title>
+    <style>
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0;
+          padding: 0;
+          background:linear-gradient(135deg, #cabcae, #ffffff);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+      }
+
+      h1 {
+          color: #333;
+          margin-bottom: 30px;
+          text-align: center;
+          font-size: 3em;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+          font-weight: 700;
+          letter-spacing: 2px;
+      }
+
+      .button {
+          display: inline-block;
+          padding: 15px 25px;
+          margin: 10px;
+          font-size: 50px;
+          color: #d66969;
+          text-decoration: none;
+          border-radius: 30px;
+          transition: all 0.3s ease;
+          width: 50%;
+          text-align: center;
+          box-shadow: 0 4px 6px rgb(200 85 85 / 73%);
+      }
+
+      .whatsapp { background-color: #25D366; }
+      .instagram { background-color: #C13584; }
+      .facebook { background-color: #1877F2; }
+      .produits { background-color: #ff7e00; }
+
+      .button:hover {
+          transform: translateY(-3px);
+          opacity: 0.9;
+      }
+
+ .header {
+      
+          width: 100%;
+      }
+ 
+      .img-content {
+     
+          
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          width: 100%;
+        
+         
+      }
+      .content {
+     
+     border-radius: 10px;
+   
+   
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     width: 100%;
+   
+     margin: auto;
+     margin-bottom: 20px;
+
+
+     background-size: cover;
+     background-position: center;
+     color: #fff;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+     font-size: 1.5em;
+     font-weight: 700;
+ }
+ .hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  </style>
+  </head>
+ 
+  
+  <body>
+    <header class="header">
+      <div class="header-content">
+       
+    
+     <img src="images/baniere.png" alt=""class="img-content">
+       
+    
+        
+     </div>
+      
+
+    </header>  
+   
+       
+      
+        <div class="content"> 
+           <h1>Bienvenue sur <br> Élégance Sacrée</h1>
+          <p style="padding: 0 120px 86px; color: #333; text-shadow: none;">Bonjour et bienvenue sur ma page ! <br>
+      
+        Je suis ravie de vous accueillir sur ma page dédiée à mes créations artisanales uniques. Vous y trouverez une sélection de bijoux et d'accessoires faits main, ainsi que des créations sur mesure pour répondre à vos envies.
+        Je m'engage à vous offrir des produits de qualité, avec un service client exceptionnel et une livraison rapide. N'hésitez pas à me contacter pour toute question ou demande particulière.
+        Merci de votre visite et à bientôt !
+        Élégance Sacrée</p>
+        </div>
+
+    
+ 
+<div style="text-align: center;">
+  <img src="images/logo.png" alt="logo" width="20%"   />
+
+
+    <h1>Mes Réseaux Sociaux</h1>
+
+  <a class="button" href="https://wa.me/+33752224585" target="_blank"
+      >Me contacter sur WhatsApp</a
+    >
+    <a class="button" href="tel:+33752224585" target="_blank"
+    >ou appeler directement</a
+  >
+    <a
+      class="button"
+      href="https://www.instagram.com/elegance_sacree1"
+      target="_blank"
+      >Voir Instagram</a
+    >
+    <a
+      class="button"
+      href="https://www.facebook.com/Élégance Sacrée "
+      target="_blank"
+      >Voir Facebook</a
+    >
+    <a class="button" href="produits.html">Voir mes produits</a>
+  </div>
+    <footer>
+      <div style="display: flex ; justify-content: space-between; padding: 20px; background-color: #f1f1f1;">
+    
+         <p>&copy; 2023 Élégance Sacrée. Tous droits reservés.</p>
+      <p>Créé avec amour par Élégance Sacrée</p>
+      <p>Contact: <a href="mailto:kaoutar_bilal@hotmail.fr">Envoyez un mail</a></p>
+      <p>Numéro de téléphone: <a href="tel:+33752224585">+33 7 52 22 45 85</a></p> 
+    
+
+      </div>
+       <div>
+               <p>Suivez-nous sur les réseaux sociaux pour rester informé de nos dernières créations et promotions !
+      Politique de confidentialité | Conditions d'utilisation
+      Nous respectons votre vie privée et nous nous engageons à protéger vos données personnelles. Pour en savoir plus, consultez notre politique de confidentialité.
+      Nous nous réservons le droit de modifier ces conditions d'utilisation à tout moment. Veuillez les consulter régulièrement pour rester informé.</p>
+      </div>
+    
+    
+
+    </footer>
+    <script>
+      // Apparition douce des éléments au scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      });
+    
+      document.querySelectorAll('.content, .button').forEach((el) => {
+        el.classList.add('hidden');
+        observer.observe(el);
+      });
+    
+      // Bouton retour en haut
+      const backToTop = document.createElement("button");
+      backToTop.textContent = "⬆ Haut";
+      backToTop.style.cssText = "position:fixed; bottom:20px; right:20px; padding:10px; display:none; background:#ff7e00; border:none; color:white; border-radius:5px; cursor:pointer;";
+      document.body.appendChild(backToTop);
+    
+      window.addEventListener("scroll", () => {
+        backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+    
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    
+      // Date dynamique
+      const year = new Date().getFullYear();
+      document.querySelector("footer p").innerHTML = `&copy; ${year} Élégance Sacrée. Tous droits réservés.`;
+    </script>
+  </body>
+</html>
