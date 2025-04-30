@@ -3,245 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mes Produits</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f5f5;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-
-    .filters button {
-      padding: 10px 20px;
-      border: none;
-      background-color: #ff7e00;
-      color: white;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .filters button:hover,
-    .filters button.active {
-      background-color: #e66900;
-    }
-
-    .produits-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .produit {
-      background-color: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease-in-out;
-      opacity: 0;
-      transform: translateY(20px);
-      display: none;
-    }
-
-    .produit.visible {
-      opacity: 1;
-      transform: translateY(0);
-      display: block;
-    }
-
-    .produit h2 {
-      color: #ff7e00;
-      margin-top: 0;
-    }
-
-    .produit p {
-      margin: 8px 0;
-    }
-
-    .produit img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .produit img:hover {
-      transform: scale(1.05);
-    }
-    @media screen and (max-width: 600px) {
-  #panier {
-    width: 90%;
-    right: 5%;
-    bottom: 10px;
-  }
-
-  .produits-container {
-    grid-template-columns: 1fr !important;
-  }
-
-  .filters {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #formulaire-commande {
-    width: 95%;
-    margin: 20px auto;
-  }
-
-  .filters button {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <title>Mes Produits - Élégance Sacrée</title>
 </head>
 <body>
-  <div id="menu-hamburger" style="display:none; position: fixed; top: 0; left: 0; background-color: #333; width: 100%; z-index: 100;">
-    <div style="padding: 15px; color: #fff; text-align: center;">
-      <a href="#home" style="color: #fff; margin-right: 20px;">Accueil</a>
-      <a href="#produits" style="color: #fff; margin-right: 20px;">Produits</a>
-      <a href="#formulaire-commande" style="color: #fff; margin-right: 20px;">Commander</a>
+ <nav id="navigation" class="fadeIn" style="background-image: image(url('images/Capture\ d\'écran\ 2025-04-30\ 181827.png') ) ;  position: fixed; width: 100%; top: 0; left: 0; z-index: 1000; height: auto;">  
+    <div class="logo" style="float: left; text-align: left;">
+      <img src="images/logo.png" alt="Logo Élégance Sacrée" style="width: 95px; height: auto;" />
     </div>
-  </div>
-  
-  <button onclick="toggleMenu()" style="background-color:#333; color:white; border:none; padding:15px 25px; cursor:pointer; font-size:24px; position:fixed; top:20px; left:20px; z-index: 200;">☰</button>
-  
-
-  <h1>Mes Produits à Vendre</h1>
-
-  <div class="filters">
-    <button class="active" data-filter="all">Tous</button>
-    <button data-filter="sac">Sac en jute</button>
-    <button data-filter="tote">Tote bag</button>
-    <button data-filter="bijoux">Bijoux inoxydable</button>
-    <button data-filter="tasse">Tasse</button>
-    <button data-filter="religieux">Religieux</button>
-  </div>
-
-  <div class="produits-container">
-    <div class="produit sac">
-      <h2>Sac en jute naturel</h2>
-      <img src="images/imag-sacjute/produits1.jpg" alt="Sac en jute" />
-      <p>Prix : 25 €</p>
-      <p>Disponible</p>
-      <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
-
+    <div class="header-content" style="text-align: center; ">
+     
+    <button onclick="document.getElementById('menu-links').classList.toggle('show');" >☰</button>
+    <div id="menu-links" style="display:none;">
+      <a href="#home">Accueil</a>
+      <a href="#produits">Produits</a>
+      <a href="#formulaire-commande">Commander</a>
     </div>
-
-    <div class="produit tote">
-      <h2>Tote Bag Élégant</h2>
-      <img src="images/imag-sacjute/totebag.jpg" alt="Tote Bag" />
-      <p>Prix : 30 €</p>
-      <p>Disponible</p>
-      <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
-
-    </div>
-
-    <div class="produit bijoux">
-      <h2>Bracelet inoxydable</h2>
-      <img src="images/imag-sacjute/produits2.jpg" alt="Bracelet" />
-      <p>Prix : 40 €</p>
-      <p>Disponible</p>
-      <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
-
-    </div>
-
-    <div class="produit tasse">
-      <h2>Tasse personnalisée</h2>
-      <img src="images/imag-sacjute/tasse.jpg" alt="Tasse" />
-      <p>Prix : 15 €</p>
-      <p>Disponible</p>
-      <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
-
-    </div>
-
-    <div class="produit religieux">
-      <h2>Chapelet artisanal</h2>
-      <img src="images/imag-sacjute/religieux.jpg" alt="Chapelet" />
-      <p>Prix : 20 €</p>
-      <p>Disponible</p>
-      <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
-
-    </div>
-  </div>
-  <div id="panier" style="position:fixed; right:20px; bottom:20px; background:#fff; border:1px solid #ccc; border-radius:10px; padding:15px; width:300px; max-height:60vh; overflow:auto; box-shadow: 0 0 10px rgba(0,0,0,0.2); z-index:1000;">
-    <h3>🛍️ Votre panier</h3>
-    <ul id="liste-panier" style="list-style: none; padding-left: 0;"></ul>
-    <p><strong>Total : <span id="total-panier">0</span> €</strong></p>
-    <button onclick="document.getElementById('formulaire-commande').scrollIntoView({behavior: 'smooth'});" style="margin-top: 10px; padding:10px 15px; background-color:#25D366; color:white; border:none; border-radius:5px; cursor:pointer;">📦 Commander</button>
-
-  </div>
-  <div id="formulaire-commande" style="max-width: 500px; margin: 50px auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-    <h2>📦 Passer une commande</h2>
-    <form id="commandeForm">
-      <label>Nom complet :</label>
-      <input type="text" id="nom" required style="width:100%; margin-bottom:10px;" />
+  </nav>
   
-      <label>Email :</label>
-      <input type="email" id="email" required style="width:100%; margin-bottom:10px;" />
-  
-      <label>Téléphone :</label>
-      <input type="tel" id="tel" required style="width:100%; margin-bottom:10px;" />
-  
-      <label>Adresse de livraison :</label>
-      <textarea id="adresse" required style="width:100%; margin-bottom:10px;"></textarea>
-  
-      <button type="submit" style="padding:10px 20px; background:#ff7e00; border:none; color:white; border-radius:5px;">Envoyer la commande via WhatsApp</button>
-      <button type="button" onclick="envoyerParEmail()" style="margin-top: 10px; padding:10px 15px; background-color:#ff7e00; color:white; border:none; border-radius:5px; cursor:pointer;">✉️ Envoyer par Email</button>
 
-    </form>
-  </div>
   
-  
+   
+  <main style="margin-top: 200px;">
+
+    <h1>Découvrez nos produits uniques et élégants.</h1>
+    <section class="filters">  
+        
+      <button class="active" data-filter="all">Tous</button>
+      <button data-filter="sac">Sac en jute</button>
+      <button data-filter="tote">Tote bag</button>
+      <button data-filter="bijoux">Bijoux inoxydable</button>
+      <button data-filter="tasse">Tasse</button>
+      <button data-filter="religieux">Religieux</button>
+    </section>
+
+    <section class="produits-container" id="produits">
+      <div class="produit sac">
+        <h2>Sac en jute naturel</h2>
+        <img src="images/imag-sacjute/produits1.jpg" alt="Sac en jute naturel">
+        <p>Prix : 25 €</p>
+        <p>Disponible</p>
+        <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
+      </div>
+      <div class="produit sac">
+        <h2>Sac en jute naturel</h2>
+        <img src="images/imag-sacjute/produits1.jpg" alt="Sac en jute naturel">
+        <p>Prix : 25 €</p>
+        <p>Disponible</p>
+        <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
+      </div>
+      <div class="produit sac">
+        <h2>Sac en jute naturel</h2>
+        <img src="images/imag-sacjute/produits1.jpg" alt="Sac en jute naturel">
+        <p>Prix : 25 €</p>
+        <p>Disponible</p>
+        <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
+      </div>
+      <div class="produit sac">
+        <h2>Sac en jute naturel</h2>
+        <img src="images/imag-sacjute/produits1.jpg" alt="Sac en jute naturel">
+        <p>Prix : 25 €</p>
+        <p>Disponible</p>
+        <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
+      </div>
+      <div class="produit sac">
+        <h2>Sac en jute naturel</h2>
+        <img src="images/imag-sacjute/produits1.jpg" alt="Sac en jute naturel">
+        <p>Prix : 25 €</p>
+        <p>Disponible</p>
+        <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
+      </div>
+      <div class="produit sac">
+        <h2>Sac en jute naturel</h2>
+        <img src="images/imag-sacjute/produits1.jpg" alt="Sac en jute naturel">
+        <p>Prix : 25 €</p>
+        <p>Disponible</p>
+        <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
+      </div>
+      <div class="produit sac">
+        <h2>Sac en jute naturel</h2>
+        <img src="images/imag-sacjute/produits1.jpg" alt="Sac en jute naturel">
+        <p>Prix : 25 €</p>
+        <p>Disponible</p>
+        <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
+      </div>
+      <div class="produit sac">
+        <h2>Sac en jute naturel</h2>
+        <img src="images/imag-sacjute/produits1.jpg" alt="Sac en jute naturel">
+        <p>Prix : 25 €</p>
+        <p>Disponible</p>
+        <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
+      </div>
+      <div class="produit sac">
+        <h2>Sac en jute naturel</h2>
+        <img src="images/imag-sacjute/produits1.jpg" alt="Sac en jute naturel">
+        <p>Prix : 25 €</p>
+        <p>Disponible</p>
+        <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
+      </div>
+      <div class="produit sac">
+        <h2>Sac en jute naturel</h2>
+        <img src="images/imag-sacjute/produits1.jpg" alt="Sac en jute naturel">
+        <p>Prix : 25 €</p>
+        <p>Disponible</p>
+        <button class="ajouter-panier" data-nom="Sac en jute naturel" data-prix="25">🛒 Ajouter au panier</button>
+      </div>
+      <!-- Autres produits ici -->
+    </section>
+
+    <aside id="panier" style="position:fixed; right:20px; bottom:20px; background:#fff; border:1px solid #ccc; border-radius:10px; padding:15px; width:300px; max-height:60vh; overflow:auto; box-shadow: 0 0 10px rgba(0,0,0,0.2); z-index:1000;">
+      <h3>🛍️ Votre panier</h3>
+      <ul id="liste-panier" style="list-style: none; padding-left: 0;"></ul>
+      <p><strong>Total : <span id="total-panier">0</span> €</strong></p>
+      <a href="commande.html" style="text-decoration:none;">
+        <button style="margin-top: 10px; padding:10px 15px; background-color:#abbfab; color:white; border:none; border-radius:5px; cursor:pointer;">📦 Commander</button>
+      </a>
+    </aside>
+  </main>
   <script>
-    const produits = document.querySelectorAll('.produit');
-    const boutons = document.querySelectorAll('.filters button');
+    const panier = JSON.parse(localStorage.getItem("panier")) || [];
+    const listePanier = document.getElementById("liste-panier");
+    const totalPanier = document.getElementById("total-panier");
 
-    // Animation à l'apparition
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    function majPanier() {
+      listePanier.innerHTML = "";
+      let total = 0;
+      panier.forEach((item, index) => {
+        total += item.prix;
+        const li = document.createElement("li");
+        li.innerHTML = `${item.nom} - ${item.prix} € <button onclick="supprimerDuPanier(${index})" style="margin-left:10px; background:red; color:white; border:none; border-radius:5px; cursor:pointer;">✖</button>`;
+        listePanier.appendChild(li);
+      });
+      totalPanier.textContent = total.toFixed(2);
+    }
+
+    function supprimerDuPanier(index) {
+      panier.splice(index, 1);
+      localStorage.setItem("panier", JSON.stringify(panier)); // Sauvegarde après suppression
+      majPanier();
+    }
+
+    document.querySelectorAll(".ajouter-panier").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const nom = btn.getAttribute("data-nom");
+        const prix = parseFloat(btn.getAttribute("data-prix"));
+        panier.push({ nom, prix });
+        localStorage.setItem("panier", JSON.stringify(panier)); // Sauvegarde dans le navigateur
+        majPanier();
+
+        alert(`✅ "${nom}" a été ajouté au panier.`);
       });
     });
 
-    produits.forEach(produit => {
-      observer.observe(produit);
-    });
-
     // Filtrage des produits
+    const boutons = document.querySelectorAll('.filters button');
+    const produits = document.querySelectorAll('.produit');
+
     boutons.forEach(btn => {
       btn.addEventListener('click', () => {
         boutons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
         const filtre = btn.getAttribute('data-filter');
-
         produits.forEach(produit => {
           if (filtre === 'all' || produit.classList.contains(filtre)) {
             produit.style.display = 'block';
@@ -254,101 +177,65 @@
       });
     });
 
-    // Afficher tous les produits au départ
+    // Animation à l'apparition
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    produits.forEach(produit => {
+      observer.observe(produit);
+    });
+
     window.addEventListener('load', () => {
       produits.forEach(produit => produit.classList.add('visible'));
     });
+
+    // Envoi de la commande via WhatsApp
+    document.getElementById("commandeForm")?.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nom = document.getElementById("nom").value;
+      const email = document.getElementById("email").value;
+      const tel = document.getElementById("tel").value;
+      const adresse = document.getElementById("adresse").value;
+
+      let message = `Nouvelle commande ! 👇\n\n👤 Nom : ${nom}\n📧 Email : ${email}\n📞 Téléphone : ${tel}\n🏡 Adresse : ${adresse}\n\n🛒 Produits commandés :\n`;
+      let total = 0;
+      panier.forEach(p => {
+        message += `- ${p.nom} : ${p.prix} €\n`;
+        total += p.prix;
+      });
+      message += `\n💰 Total : ${total.toFixed(2)} €`;
+
+      const numeroWhatsApp = "33752224585";
+      const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    });
+
+    // Envoi par email
+    function envoyerParEmail() {
+      const nom = document.getElementById("nom").value;
+      const email = document.getElementById("email").value;
+      const tel = document.getElementById("tel").value;
+      const adresse = document.getElementById("adresse").value;
+
+      let message = `Nouvelle commande par Email ! 👇\n\n👤 Nom : ${nom}\n📧 Email : ${email}\n📞 Téléphone : ${tel}\n🏡 Adresse : ${adresse}\n\n🛒 Produits commandés :\n`;
+      let total = 0;
+      panier.forEach(p => {
+        message += `- ${p.nom} : ${p.prix} €\n`;
+        total += p.prix;
+      });
+      message += `\n💰 Total : ${total.toFixed(2)} €`;
+
+      const subject = "Nouvelle commande - Élégance Sacrée";
+      const mailtoLink = `mailto:kaoutar_bilal@hotmail.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+      window.location.href = mailtoLink;
+    }
   </script>
-<script>
-  const panier = [];
-  const listePanier = document.getElementById("liste-panier");
-  const totalPanier = document.getElementById("total-panier");
-
-  function majPanier() {
-    listePanier.innerHTML = "";
-    let total = 0;
-
-    panier.forEach((item, index) => {
-      total += item.prix;
-      const li = document.createElement("li");
-      li.innerHTML = `${item.nom} - ${item.prix} € <button onclick="supprimerDuPanier(${index})" style="margin-left:10px; background:red; color:white; border:none; border-radius:5px; cursor:pointer;">✖</button>`;
-      listePanier.appendChild(li);
-    });
-
-    totalPanier.textContent = total.toFixed(2);
-  }
-
-  function supprimerDuPanier(index) {
-    panier.splice(index, 1);
-    majPanier();
-  }
-
-  document.querySelectorAll(".ajouter-panier").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const nom = btn.getAttribute("data-nom");
-      const prix = parseFloat(btn.getAttribute("data-prix"));
-      panier.push({ nom, prix });
-      majPanier();
-    });
-  });
-</script>
-<script>
-  document.getElementById("commandeForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const nom = document.getElementById("nom").value;
-    const email = document.getElementById("email").value;
-    const tel = document.getElementById("tel").value;
-    const adresse = document.getElementById("adresse").value;
-
-    let message = `Nouvelle commande ! 👇\n\n👤 Nom : ${nom}\n📧 Email : ${email}\n📞 Téléphone : ${tel}\n🏡 Adresse : ${adresse}\n\n🛒 Produits commandés :\n`;
-
-    let total = 0;
-    panier.forEach(p => {
-      message += `- ${p.nom} : ${p.prix} €\n`;
-      total += p.prix;
-    });
-
-    message += `\n💰 Total : ${total.toFixed(2)} €`;
-
-    const numeroWhatsApp = "33752224585"; // ton numéro sans le "+"
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
-
-    window.open(url, "_blank");
-  });
-</script>
-<script>
-  function envoyerParEmail() {
-    const nom = document.getElementById("nom").value;
-    const email = document.getElementById("email").value;
-    const tel = document.getElementById("tel").value;
-    const adresse = document.getElementById("adresse").value;
-
-    let message = `Nouvelle commande par Email ! 👇\n\n👤 Nom : ${nom}\n📧 Email : ${email}\n📞 Téléphone : ${tel}\n🏡 Adresse : ${adresse}\n\n🛒 Produits commandés :\n`;
-
-    let total = 0;
-    panier.forEach(p => {
-      message += `- ${p.nom} : ${p.prix} €\n`;
-      total += p.prix;
-    });
-
-    message += `\n💰 Total : ${total.toFixed(2)} €`;
-
-    const subject = "Nouvelle commande - Élégance Sacrée";
-
-    const mailtoLink = `mailto:kaoutar_bilal@hotmail.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-    
-    window.location.href = mailtoLink;
-  }
-</script>
-
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById("menu-hamburger");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-  }
-</script>
-
-
+ 
+ 
 </body>
 </html>
