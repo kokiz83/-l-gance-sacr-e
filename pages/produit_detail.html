@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tablier de Cuisine Personnalisé</title>
     <link rel="stylesheet" href="style1.css">
+    <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 </head>
 <body>
     <header>
@@ -21,10 +24,32 @@
     </header>
 
     <section id="tablier">
-        <div class="product-info">
+      
+        
+            
             <h2>Tablier de Cuisine Personnalisé</h2>
             <img src="tablier.jpg" alt="Tablier de Cuisine">
             <p>Ce tablier de cuisine est personnalisable avec un texte de votre choix. Un cadeau parfait pour les chefs en herbe !</p>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="tablier1.jpg" alt="Tablier Vue 1">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="tablier2.jpg" alt="Tablier Vue 2">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="tablier3.jpg" alt="Tablier Vue 3">
+                    </div>
+                </div>
+            
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            
+                <!-- Boutons de navigation -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
             <h3>Personnalisez votre tablier</h3>
 
             <!-- Formulaire de personnalisation -->
@@ -54,5 +79,23 @@
     <footer>
         <p>&copy; 2025 YourSurprise Clone. Tous droits réservés.</p>
     </footer>
+   
+        <!-- Swiper JS -->
+
+<script>
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+  
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>

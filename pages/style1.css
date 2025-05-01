@@ -137,3 +137,16 @@ footer {
   text-align: center;
   padding: 20px;
 }
+.swiper-container {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
