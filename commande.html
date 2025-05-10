@@ -42,7 +42,10 @@
         </button>
         <h1>Mon produit</h1>
         <p>15 €</p>
-        <a href="https://buy.stripe.com/test_eVq7sE7Gk0Ue6iwacj4gg00" target="_blank">
+        <a
+          href="https://buy.stripe.com/test_eVq7sE7Gk0Ue6iwacj4gg00"
+          target="_blank"
+        >
           <button>Acheter maintenant</button>
         </a>
       </form>
@@ -109,5 +112,14 @@
         window.location.href = mailtoLink;
       }
     </script>
+    <script async
+    src="https://js.stripe.com/v3/buy-button.js">
+  </script>
+  
+  <stripe-buy-button
+    buy-button-id="buy_btn_1RNG7r2ZEDlcORWg8XFXmedw"
+    publishable-key="pk_test_51RNFU12ZEDlcORWgeA4CGfkXyZNtccY9FxKz7CbLg5Zs8Y335UHnXWcU0GOPfju9uodlwVyen51SHKa4cindXY0O00cYCAvhvu"
+  >
+  </stripe-buy-button>
   </body>
 </html>
