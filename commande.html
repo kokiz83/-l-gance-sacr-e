@@ -2,22 +2,24 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Achat</title>
+  <title>Paiement</title>
 </head>
 <body>
-  <h1>Mon produit</h1>
-  <p>15 €</p>
-  <a href="https://buy.stripe.com/test_XXXXXXXXXXXX" target="_blank">
-    <button>Acheter maintenant</button>
-  </a>
-  <script async
-  src="https://js.stripe.com/v3/buy-button.js">
-</script>
+  <h1>Acheter mon produit</h1>
+  <p>Prix : 15 €</p>
 
-<stripe-buy-button
-  buy-button-id="buy_btn_1RNG7r2ZEDlcORWg8XFXmedw"
-  publishable-key="pk_test_51RNFU12ZEDlcORWgeA4CGfkXyZNtccY9FxKz7CbLg5Zs8Y335UHnXWcU0GOPfju9uodlwVyen51SHKa4cindXY0O00cYCAvhvu"
->
-</stripe-buy-button>
+  <!-- Bouton Stripe -->
+  <a href="https://buy.stripe.com/test_XXXXXXXXXXXX" target="_blank">
+    <button style="background-color: #6772e5; color: white;">Payer par carte (Stripe)</button>
+  </a>
+
+  <!-- Bouton PayPal -->
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="margin-top:10px;">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="TON_ID_PAYPAL">
+    <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" 
+           border="0" name="submit" alt="Payer avec PayPal">
+    <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+  </form>
 </body>
 </html>
