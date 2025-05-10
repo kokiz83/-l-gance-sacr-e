@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Paiement</title>
-</head>
-<body>
-  <h1>Acheter mon produit</h1>
-  <p>Prix : 15 €</p>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Paiement</title>
+  </head>
+  <body>
+    <h1>Acheter mon produit</h1>
+    <p>Prix : 15 €</p>
 
-  <!-- Bouton Stripe -->
-  <a href="https://buy.stripe.com/test_XXXXXXXXXXXX" target="_blank">
-    <button style="background-color: #6772e5; color: white;">Payer par carte (Stripe)</button>
-  </a>
+    <!-- Bouton Stripe -->
+    <a href="https://buy.stripe.com/test_XXXXXXXXXXXX" target="_blank">
+      <button style="background-color: #6772e5; color: white">
+        Payer par carte (Stripe)
+      </button>
+    </a>
 
-  <!-- Bouton PayPal -->
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="margin-top:10px;">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="TON_ID_PAYPAL">
-    <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" 
-           border="0" name="submit" alt="Payer avec PayPal">
-    <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
-  </form>
-</body>
+    <!-- Bouton PayPal -->
+    <form
+      action="https://www.paypal.com/cgi-bin/webscr"
+      method="post"
+      target="_top"
+      style="margin-top: 10px"
+    >
+      <input type="hidden" name="cmd" value="_s-xclick" />
+      <input type="hidden" name="hosted_button_id" value="TON_ID_PAYPAL" />
+      <input
+        type="image"
+        src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif"
+        border="0"
+        name="submit"
+        alt="Payer avec PayPal"
+      />
+      <img
+        alt=""
+        border="0"
+        src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif"
+        width="1"
+        height="1"
+      />
+    </form>
+  </body>
 </html>
