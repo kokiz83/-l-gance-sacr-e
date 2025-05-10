@@ -1,125 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Passer une commande</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h2>📦 Passer une commande</h2>
-      <form id="commandeForm">
-        <label for="nom">Nom complet :</label>
-        <input type="text" id="nom" placeholder="Votre nom complet" required />
+<head>
+  <meta charset="UTF-8">
+  <title>Achat</title>
+</head>
+<body>
+  <h1>Mon produit</h1>
+  <p>15 €</p>
+  <a href="https://buy.stripe.com/test_XXXXXXXXXXXX" target="_blank">
+    <button>Acheter maintenant</button>
+  </a>
+  <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
 
-        <label for="email">Email :</label>
-        <input
-          type="email"
-          id="email"
-          placeholder="exemple@domaine.com"
-          required
-        />
-
-        <label for="tel">Téléphone :</label>
-        <input
-          type="tel"
-          id="tel"
-          placeholder="Votre numéro de téléphone"
-          required
-        />
-
-        <label for="adresse">Adresse de livraison :</label>
-        <textarea
-          id="adresse"
-          placeholder="Votre adresse complète"
-          required
-        ></textarea>
-
-        <button type="submit">Envoyer via WhatsApp</button>
-        <button type="button" class="secondary-btn" onclick="envoyerParEmail()">
-          ✉️ Envoyer par Email
-        </button>
-        <h1>Mon produit</h1>
-        <p>15 €</p>
-        <a
-          href="https://buy.stripe.com/test_eVq7sE7Gk0Ue6iwacj4gg00"
-          target="_blank"
-        >
-          <button>Acheter maintenant</button>
-        </a>
-      </form>
-    </div>
-
-    <script>
-      const panier = JSON.parse(localStorage.getItem("panier")) || [];
-
-      // Validation du formulaire avant soumission
-      document
-        .getElementById("commandeForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const nom = document.getElementById("nom").value;
-          const email = document.getElementById("email").value;
-          const tel = document.getElementById("tel").value;
-          const adresse = document.getElementById("adresse").value;
-
-          if (!nom || !email || !tel || !adresse) {
-            alert("Veuillez remplir tous les champs !");
-            return;
-          }
-
-          let message = `Nouvelle commande ! 👇\n\n👤 Nom : ${nom}\n📧 Email : ${email}\n📞 Téléphone : ${tel}\n🏡 Adresse : ${adresse}\n\n🛒 Produits commandés :\n`;
-          let total = 0;
-          panier.forEach((p) => {
-            message += `- ${p.nom} : ${p.prix} €\n`;
-            total += p.prix;
-          });
-          message += `\n💰 Total : ${total.toFixed(2)} €`;
-
-          const numeroWhatsApp = "33752224585";
-          const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(
-            message
-          )}`;
-          window.open(url, "_blank");
-        });
-
-      // Fonction pour envoyer par Email
-      function envoyerParEmail() {
-        const nom = document.getElementById("nom").value;
-        const email = document.getElementById("email").value;
-        const tel = document.getElementById("tel").value;
-        const adresse = document.getElementById("adresse").value;
-
-        if (!nom || !email || !tel || !adresse) {
-          alert("Veuillez remplir tous les champs !");
-          return;
-        }
-
-        let message = `Nouvelle commande par Email ! 👇\n\n👤 Nom : ${nom}\n📧 Email : ${email}\n📞 Téléphone : ${tel}\n🏡 Adresse : ${adresse}\n\n🛒 Produits commandés :\n`;
-        let total = 0;
-        panier.forEach((p) => {
-          message += `- ${p.nom} : ${p.prix} €\n`;
-          total += p.prix;
-        });
-        message += `\n💰 Total : ${total.toFixed(2)} €`;
-
-        const subject = "Nouvelle commande - Élégance Sacrée";
-        const mailtoLink = `mailto:kaoutar_bilal@hotmail.fr?subject=${encodeURIComponent(
-          subject
-        )}&body=${encodeURIComponent(message)}`;
-        window.location.href = mailtoLink;
-      }
-    </script>
-    <script async
-    src="https://js.stripe.com/v3/buy-button.js">
-  </script>
-  
-  <stripe-buy-button
-    buy-button-id="buy_btn_1RNG7r2ZEDlcORWg8XFXmedw"
-    publishable-key="pk_test_51RNFU12ZEDlcORWgeA4CGfkXyZNtccY9FxKz7CbLg5Zs8Y335UHnXWcU0GOPfju9uodlwVyen51SHKa4cindXY0O00cYCAvhvu"
-  >
-  </stripe-buy-button>
-  </body>
+<stripe-buy-button
+  buy-button-id="buy_btn_1RNG7r2ZEDlcORWg8XFXmedw"
+  publishable-key="pk_test_51RNFU12ZEDlcORWgeA4CGfkXyZNtccY9FxKz7CbLg5Zs8Y335UHnXWcU0GOPfju9uodlwVyen51SHKa4cindXY0O00cYCAvhvu"
+>
+</stripe-buy-button>
+</body>
 </html>
